@@ -87,8 +87,6 @@ export class SettingsPage {
   {
     this.storage.clear();
   }
-
-  form
   
 
 
