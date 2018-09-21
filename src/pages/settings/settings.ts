@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {WeatherProvider} from '../../providers/weather/weather';
 import { Storage } from '@ionic/storage';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Jsonp } from '@angular/http';
+
 /**
  * Generated class for the SettingsPage page.
  *
@@ -21,7 +24,13 @@ export class SettingsPage {
   longitude:any;
   key:any = [];
   values:any = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage:Storage, public weathers:WeatherProvider) {
+  city:string;
+  location:FormGroup;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage:Storage, public weathers:WeatherProvider,public formBuilder:FormBuilder, 
+    ) {
+      this.location = formBuilder.group({
+        city:['', Validators.compose([Validators.pattern('[a-zA-z]*'), Validators.required])],
+      })
     this.checkLocationExist();
   }
 
@@ -31,18 +40,19 @@ export class SettingsPage {
 
   checkLocationExist()
   {
-    //this.clears();
+    this.clears();
     this.storage.length().then((length) => {
       console.log(length);
       if(length == 0)
       {
         new Promise((resolve, reject) => {
-          navigator.geolocation.getCurrentPosition((position) => resolve(position));
-        }).then((value) => {
-         
-          this.latitude = value.coords.latitude;
-          this.longitude = value.coords.longitude;
-          console.log(this.latitude);
+          navigator.geolocation.getCurrentPosition((position) => {resolve([position.coords.latitude, position.coords.longitude])});
+        }).then((position) => {
+          //console.log(position[0]);//0 for latitude 1 for longitude
+          //console.log(position[1]);
+          this.latitude = position[0];
+          this.longitude = position[1];
+         // console.log(this.latitude);
           //this.storage.set('latitude', this.latitude);
           //this.storage.set('longitude', this.longitude);
           new Promise((resolve, reject) => {
@@ -77,6 +87,8 @@ export class SettingsPage {
   {
     this.storage.clear();
   }
+
+  form
   
 
 
