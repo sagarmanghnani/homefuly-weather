@@ -24,7 +24,7 @@ export class WeatherProvider {
 
   getWeatherCity(city)
   {
-    return this.http.get("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + this.apiKeyWeather);
+    return this.http.get("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + this.apiKeyWeather).map(res =>res.json());
   }
 
   getGeocode(city, country)

@@ -11,6 +11,7 @@ import {Geolocation} from '@ionic-native/geolocation';
 import {HttpModule, Http} from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { SettingsPage } from '../pages/settings/settings';
+import { WeatherConditionProvider } from '../providers/weather-condition/weather-condition';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SettingsPage } from '../pages/settings/settings';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     WeatherProvider, 
     Geolocation,
+    WeatherConditionProvider,
     
   ]
 })
