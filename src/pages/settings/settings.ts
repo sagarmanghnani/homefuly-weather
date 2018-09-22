@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import {WeatherProvider} from '../../providers/weather/weather';
 import { Storage } from '@ionic/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Jsonp } from '@angular/http';
+import {HomePage} from '../home/home';
+
 
 /**
  * Generated class for the SettingsPage page.
@@ -26,7 +28,7 @@ export class SettingsPage {
   values:any = [];
   city:string;
   location:FormGroup;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage:Storage, public weathers:WeatherProvider,public formBuilder:FormBuilder, 
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage:Storage, public weathers:WeatherProvider,public formBuilder:FormBuilder, public modaltCrl:ModalController
     ) {
       this.location = formBuilder.group({
         city:['', Validators.compose([Validators.pattern('[a-zA-z]*'), Validators.required])],
@@ -87,6 +89,15 @@ export class SettingsPage {
   {
     this.storage.clear();
   }
+
+  addSearchBox()
+  {
+    let addModal = this.modaltCrl.create(HomePage);
+    addModal.onDidDismiss((item) => {console.log(item)});
+    addModal.present();
+  }
+
+  
   
 
 

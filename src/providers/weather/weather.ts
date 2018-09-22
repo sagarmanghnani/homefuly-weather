@@ -22,14 +22,16 @@ export class WeatherProvider {
     return this.http.get("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid="+this.apiKeyWeather).map(res => res.json());
   }
 
-  check()
-  {
-    console.log("printing weather provider");
-  }
-
   getWeatherCity(city)
   {
     return this.http.get("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + this.apiKeyWeather);
   }
+
+  getGeocode(city, country)
+  {
+    return this.http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+ city + "+" + country + "&key=" + "AIzaSyCVA_4jw6LE8aRbeIbHjZV0ZObC-s3ag-k");
+  }
+
+
 
 }
