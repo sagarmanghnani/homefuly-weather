@@ -7,6 +7,9 @@ page-settings {
     
     .containerParent{
         background-color: #ededec;
+        ion-grid{
+            height: 100%;
+        }
         .container{
             width: 75%;
             display: flex;
@@ -70,7 +73,7 @@ page-settings {
             padding: 2rem;
         }
         .temperature{
-            margin-top: 30%;
+            margin-top: 25%;
             color: white;
             font-size: 6em;
             font-family: 'Lato', sans-serif;
@@ -90,12 +93,16 @@ page-settings {
     .float{
         width:5rem;
         height:5rem;
-        background-color:#0C9;
+        background:linear-gradient(#ec5792, #f28067);
         color:#FFF;
         border-radius:50px;
         text-align:center;
         box-shadow: 0px 1px 7px 1px #b5adad;
     }       
+    .weathericon{
+        font-size: 8rem;
+        color: #fff;
+        }  
 
 }
 
@@ -105,5 +112,8 @@ page-settings {
 @media only screen and (max-width: 760px) {
     .rightpane{
         font-size: 1.8rem !important;
+    }
+    .temperature{
+        margin-top: 10%;
     }
 } 
