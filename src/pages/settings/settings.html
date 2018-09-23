@@ -37,9 +37,12 @@
 
           <ion-row>
             <ion-col class="marginfix">Wind Speed<span>{{wind}}</span></ion-col>
-          </ion-row>  
-          
-          <button (click) = "addSearchBox()">click me</button>  
+          </ion-row> 
+          <ion-row padding-top="2rem" float-end>
+            <button class="float" (click) = "addSearchBox()" float-right>
+              <ion-icon name="md-add"></ion-icon>
+            </button>  
+          </ion-row>
         </ion-col>  
       
       </ion-row>  

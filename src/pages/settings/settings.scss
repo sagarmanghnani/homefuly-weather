@@ -19,7 +19,7 @@ page-settings {
             //color: white;
             color: #f2a0c3;
             font-family: 'Lato', sans-serif;
-            font-weight: 300;
+            font-weight: 800;
         }
 
         .horizontalLine{
@@ -43,9 +43,9 @@ page-settings {
         .rightpane{
             color: #929292;
             /*font-size: 1.8vw;  previously used, was ideal*/
-            font-size:1.4em;
+            font-size:2em;
             font-family: 'Lato', sans-serif;
-            font-weight: 800
+            font-weight: 300
         }
     }
 
@@ -67,6 +67,7 @@ page-settings {
     .clearSky{
         .leftPane{
             background:linear-gradient(#ec5792, #f28067);
+            padding: 2rem;
         }
         .temperature{
             margin-top: 30%;
@@ -86,5 +87,23 @@ page-settings {
             font-weight: 300;
         }
     }
+    .float{
+        width:5rem;
+        height:5rem;
+        background-color:#0C9;
+        color:#FFF;
+        border-radius:50px;
+        text-align:center;
+        box-shadow: 0px 1px 7px 1px #b5adad;
+    }       
 
 }
+
+
+// media queries
+
+@media only screen and (max-width: 420px) {
+    .rightpane{
+        font-size: 1.8rem !important;
+    }
+} 
