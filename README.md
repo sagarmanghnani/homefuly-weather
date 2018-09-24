@@ -1,4 +1,4 @@
-# Homefuly-weather
+# Homefuly-weather(https://weatherapp-1537438054447.firebaseapp.com)
 This repo contains a weather app which shows temperature, humidity, wind, etc by taking input city from the user.
 Below are the features and installation instructions.
 
